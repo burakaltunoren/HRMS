@@ -24,8 +24,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "cities")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobpostings"})
-public class City {
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobpostings"}) // bu satırın bu ana tabloda olma sebebi aşağıda @OneToMany ilişkinin varlığı nedeniyle
+public class City {															// sonsuz döngünün oluşmasını engellemek mi?
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,8 +33,8 @@ public class Jobposting {
 	@Column(name = "id")
 	private int id;
 	
-	@ManyToOne(targetEntity = Employer.class)
-	@JoinColumn(name = "employer_id", referencedColumnName = "user_id")
+	@ManyToOne(targetEntity = Employer.class) 
+	@JoinColumn(name = "employer_id", referencedColumnName = "user_id") 
 	private Employer employer;
 	
 	@ManyToOne

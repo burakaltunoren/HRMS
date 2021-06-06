@@ -15,7 +15,6 @@ import javax.validation.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,7 +27,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @PrimaryKeyJoinColumn(name = "id")
 @Table(name = "positions")
-
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobpostings"})
 public class Position {
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
