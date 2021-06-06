@@ -10,7 +10,7 @@ public interface CandidateService {
 	
 	Result add(Candidate candidate);
 	Result delete(Candidate candidate);
-	DataResult<List<Candidate>> getAll();
+	DataResult<List<Candidate>> getAll();  //listeleme
 	
 	
 	
