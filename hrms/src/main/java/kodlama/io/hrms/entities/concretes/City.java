@@ -11,6 +11,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "cities")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobpostings"})
 public class City {
 	
 	@Id
@@ -32,6 +37,7 @@ public class City {
 	private String city;
 	
 	@OneToMany(mappedBy = "city")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private List<Jobposting> jobpostings;
 
 }

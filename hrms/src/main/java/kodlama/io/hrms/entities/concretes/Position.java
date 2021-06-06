@@ -12,6 +12,10 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,6 +28,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @PrimaryKeyJoinColumn(name = "id")
 @Table(name = "positions")
+
 public class Position {
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,5 +41,6 @@ public class Position {
 	String positionName;
 	
 	@OneToMany(mappedBy = "position")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private List<Jobposting> jobPostings;
 }

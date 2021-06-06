@@ -17,7 +17,8 @@ public interface JobpostingDao extends JpaRepository<Jobposting, Integer>{
 	@Query("From Jobposting where isOpen = true Order By publishDate Desc")
 	List<Jobposting> findAllByOrderByPublishedAtDesc();
 	
-	
+	//@Query("From Jobpostings where isOpen = true and employer_id =:id")
+	//List<Jobposting> getAllOpenJobPostingByEmployer(int id);
 	
 
 }
